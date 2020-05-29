@@ -17,16 +17,19 @@ Template.newPoll.events = {
 	'click button[data-action="create-new-poll"]': function(event){
 		event.preventDefault();
 		var template = Template.instance();
-		Polls.insert({
-			userId: Meteor.userId(),
-			title: template.$('#newPollTitle').val(),
-			description: template.$('#newPollDescription').val(),
-			timestamp: moment().valueOf(),
-			options: [
-				'Yes',
-				'No'
-			]
-		});
-		template.creatingPoll.set(false);
+
+		if(Meteor.userId()) {
+			Polls.insert({
+				userId: Meteor.userId(),
+				title: template.$('#newPollTitle').val(),
+				description: template.$('#newPollDescription').val(),
+				timestamp: moment().valueOf(),
+				options: [
+					'Yes',
+					'No'
+				]
+			});
+			template.creatingPoll.set(false);
+		}
 	}
 };

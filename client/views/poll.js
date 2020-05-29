@@ -10,12 +10,16 @@ Template.pollDetails.events = {
 		event.preventDefault();
 		var poll = Template.currentData();
 		var pollOption = this;
-		Votes.insert({
-			userId: Meteor.userId(),
-			pollId: poll && poll._id,
-			timestamp: moment().valueOf(),
-			option: pollOption.valueOf()
-		});
+		var hasUserVoted = Votes.find({ userId: Meteor.userId(), pollId: poll._id }).fetch().length === 0;
+
+		if(Meteor.userId() && hasUserVoted) {
+			Votes.insert({
+				userId: Meteor.userId(),
+				pollId: poll && poll._id,
+				timestamp: moment().valueOf(),
+				option: pollOption.valueOf()
+			});
+		}
 	}
 };
 
