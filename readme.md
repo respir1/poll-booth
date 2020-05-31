@@ -42,8 +42,8 @@ Todos for this section:
  * Voting should be limited to only users who are logged. +
  * Only allow each user account to vote once per poll. + 
  * Creation of new polls also requires a user to be logged in. +
- * Let un-authenticated users know that they must be logged in to vote or create polls. 
- * Let users know that they can only vote once. 
+ * Let un-authenticated users know that they must be logged in to vote or create polls. +
+ * Let users know that they can only vote once. +
  * Enforce these rules on the server side, not just the client. +
 
 
@@ -54,7 +54,7 @@ In order to prevent skewed polls we should hide the results for a poll until a u
 
 Todos for this section:
 
- * Hide poll results until after a user votes on that poll.
+ * Hide poll results until after a user votes on that poll. +
 
 ##In our democracy we would like to agree on more than just a 'yes' or a 'no'.
 Currently all polls are limited to a 'Yes' or 'No' vote. We should be able to create polls with arbitrary options beyond 
@@ -66,14 +66,14 @@ be 2, and let's set an arbitrary upper limit at 6 options.
 Todos for this section:
 
  * Allow users to change the text of the options in the poll.
- * Allow users add between 2 and 6 options for their poll.
+ * Allow users add between 2 and 6 options for their poll. +
 
 While we are adding restrictions to our poll we should also make sure that polls are given a title. If 
 the title field is left blank, prevent the user from creating the poll and let them know that they need to add a title.
 
 Todos for this section:
 
- * Don't allow users to create polls without titles.
+ * Don't allow users to create polls without titles. +
 
 ##Elections don't last forever, nothing does
 Let's put a time limit on our polls. Allow the poll creator to enter how many hours a poll will remain 
@@ -83,10 +83,10 @@ the polls in our database for future reference.
 
 Todos for this section:
 
- * Allow users to put an end time on polls they create
+ * Allow users to put an end time on polls they create 
  * After the end time is past show the polls in the list for one more day (so users can see results) but don't allow any
    more votes.
- * One day after the poll ends hide the polls from the users
+ * One day after the poll ends hide the polls from the users +
 
 ##A more interesting home page
 Currently on the home page we see a list of polls, but so far we only get the title of the poll. It would be nice to 

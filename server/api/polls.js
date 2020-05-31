@@ -13,7 +13,11 @@ Meteor.methods({
 	
 		if(!this.userId) {
 			throw new Meteor.Error('not-authorized');
-        } 
+		} 
+		if(!poll.title) {
+			throw new Meteor.Error('cannot-create-poll-without-title');
+		}
+
         Polls.insert(poll);
 	},
 	'polls.update'(pollId, doc, fields, modifier) {

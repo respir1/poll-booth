@@ -2,6 +2,11 @@ Template.pollListItem.events = {
 	'click button[data-action="view-poll"]': function(event){
 		event.preventDefault();
 		Router.go("/poll/" + this._id);
+
+		if(!Meteor.userId()) {
+			FlashMessages.sendError("Whoops! You are not logged in. Please log in to vote.", 
+			{ autoHide: true, hideDelay: 10000 });
+		}
 	}
 };
 
@@ -12,6 +17,11 @@ Template.pollDetails.events = {
 		var pollOption = this;
 		var userHasNotVoted = Votes.find({ userId: Meteor.userId(), pollId: poll._id }).fetch().length === 0;
 
+		if(!userHasNotVoted) {
+			FlashMessages.sendWarning("Uh oh! It looks like you've already voted. You can only vote once per poll.",
+			{ autoHide: true, hideDelay: 10000 });
+		}
+		
 		if(Meteor.userId() && userHasNotVoted) {
 			var pollObj = {
 				userId: Meteor.userId(),
@@ -20,7 +30,7 @@ Template.pollDetails.events = {
 				option: pollOption.valueOf()
 			}
 			Meteor.call('votes.insert', pollObj);
-		}
+		} 
 	}
 };
 
@@ -30,3 +40,9 @@ Template.pollDetails.helpers({
 		return Votes.find({option: pollOption.valueOf()}).count();
 	}
 });
+
+Template.pollDetails.helpers({
+	'showVotes': function() {
+		return Votes.find({ userId: this.userId, pollId: this._id }).count() !== 0;
+	}
+})

@@ -4,7 +4,7 @@
 
 Meteor.publish('polls', function () {
 	check(arguments, [Match.Any]);
-	return Polls.find({});
+	return Polls.find({}, { sort: { createdAt: -1 } });
 });
 
 

@@ -10,15 +10,15 @@ Meteor.methods({
             option: String
         }))
 
-        var userHasVoted = Votes.find({ 
+        var userHasNotVoted = Votes.find({ 
             userId: vote.userId,
             pollId: vote.pollId
-        }).count() !== 0;
+        }).count() === 0;
 
-		if(!this.userId && hasUserVoted) {
+		if(!this.userId) {
 			throw new Meteor.Error('not-authorized');
         }
-        if(userHasVoted) {
+        if(!userHasNotVoted) {
             throw new Meteor.Error('user-already-voted');
         }
         Votes.insert(vote);
