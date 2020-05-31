@@ -39,12 +39,12 @@ know that they need to login or only count as one vote.
 
 Todos for this section:
 
- * Voting should be limited to only users who are logged.
- * Only allow each user account to vote once per poll.
- * Creation of new polls also requires a user to be logged in.
- * Let un-authenticated users know that they must be logged in to vote or create polls.
- * Let users know that they can only vote once.
- * Enforce these rules on the server side, not just the client.
+ * Voting should be limited to only users who are logged. +
+ * Only allow each user account to vote once per poll. + 
+ * Creation of new polls also requires a user to be logged in. +
+ * Let un-authenticated users know that they must be logged in to vote or create polls. 
+ * Let users know that they can only vote once. 
+ * Enforce these rules on the server side, not just the client. +
 
 
 ##The resident sociologist has some suggestions.

@@ -1,23 +1,11 @@
-Polls.allow({
-	insert: function(userId, doc){
-		return true;
-	},
-	update: function(userId, doc, fields, modifier){
-		return true;
-	},
-	remove: function(userId, doc){
-		return true;
-	}
+Polls.deny({
+	insert() { return true; },
+	update() { return true; },
+	remove() { return true; },
 });
 
-Votes.allow({
-	insert: function(userId, doc){
-		return true;
-	},
-	update: function(userId, doc, fields, modifier){
-		return true;
-	},
-	remove: function(userId, doc){
-		return true;
-	}
+Votes.deny({
+	insert() { return true; },
+	update() { return true; },
+	remove() { return true; },
 });

@@ -19,7 +19,7 @@ Template.newPoll.events = {
 		var template = Template.instance();
 
 		if(Meteor.userId()) {
-			Polls.insert({
+			var pollObj = {
 				userId: Meteor.userId(),
 				title: template.$('#newPollTitle').val(),
 				description: template.$('#newPollDescription').val(),
@@ -28,8 +28,10 @@ Template.newPoll.events = {
 					'Yes',
 					'No'
 				]
-			});
-			template.creatingPoll.set(false);
+			};
+			Meteor.call('polls.insert', pollObj);
 		}
+
+		template.creatingPoll.set(false);
 	}
 };

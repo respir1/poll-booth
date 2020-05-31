@@ -10,15 +10,16 @@ Template.pollDetails.events = {
 		event.preventDefault();
 		var poll = Template.currentData();
 		var pollOption = this;
-		var hasUserVoted = Votes.find({ userId: Meteor.userId(), pollId: poll._id }).fetch().length === 0;
+		var userHasNotVoted = Votes.find({ userId: Meteor.userId(), pollId: poll._id }).fetch().length === 0;
 
-		if(Meteor.userId() && hasUserVoted) {
-			Votes.insert({
+		if(Meteor.userId() && userHasNotVoted) {
+			var pollObj = {
 				userId: Meteor.userId(),
 				pollId: poll && poll._id,
 				timestamp: moment().valueOf(),
 				option: pollOption.valueOf()
-			});
+			}
+			Meteor.call('votes.insert', pollObj);
 		}
 	}
 };
