@@ -46,3 +46,10 @@ Template.pollDetails.helpers({
 		return Votes.find({ userId: this.userId, pollId: this._id }).count() !== 0;
 	}
 })
+
+Template.pollDetails.helpers({
+	'disableVoting': function() {
+		var pollInfo = Polls.findOne({ pollId: this.id })
+		return moment().valueOf() < pollInfo.endTime;
+	}
+})

@@ -8,7 +8,8 @@ Meteor.methods({
             title: String,
             description: String,
             timestamp: Number, 
-            options: Array
+			options: Array,
+			endTime: Number
         }))
 	
 		if(!this.userId) {
@@ -17,7 +18,9 @@ Meteor.methods({
 		if(!poll.title) {
 			throw new Meteor.Error('cannot-create-poll-without-title');
 		}
-
+		if(!poll.options.length > 6) {
+			throw new Meteor.Error('more-than-6-options')
+		}
         Polls.insert(poll);
 	},
 	'polls.update'(pollId, doc, fields, modifier) {

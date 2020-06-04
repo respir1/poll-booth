@@ -14,10 +14,25 @@
 				<div class="row">
 					<textarea id="newPollDescription" placeholder="Description of what we're voting on"></textarea>
 				</div>
-				<div class="row">
-					<input class="row" type="text" name="newPollOption" id="newPollOption" placeholder="Add an Option" />
+				<div class="row create-poll-fields">
+					{{#each option in optionsArray}}
+						<div class="row">{{option}}</div>
+					{{/each}}
+					<div class="row">
+						<input type="text" name="newPollOption" id="newPollOption" placeholder="Add Voting Options" />
+						<button class="btn btn-default option-btn" data-action="add-an-option">Add</button>
+					</div>
+					<div class="row">
+						<div class='input-group date'>
+							<input 
+								type="datetime-local" 
+								name="dateTimePicker" 
+								id="dateTimePicker" 
+								pattern="[0-9]{2}:[0-9]{2}" 
+								placeholder="When will the poll end">
+						</div>
+					</div>
 				</div>
-				<button class="btn" data-action="add-an-option">Add an Option</button>
 				
 				<div class="row">
 					<button class="btn btn-default" data-action="cancel-new-poll">Cancel</button>

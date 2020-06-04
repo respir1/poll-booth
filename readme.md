@@ -65,7 +65,7 @@ be 2, and let's set an arbitrary upper limit at 6 options.
 
 Todos for this section:
 
- * Allow users to change the text of the options in the poll.
+ * Allow users to change the text of the options in the poll. +
  * Allow users add between 2 and 6 options for their poll. +
 
 While we are adding restrictions to our poll we should also make sure that polls are given a title. If 
@@ -83,9 +83,9 @@ the polls in our database for future reference.
 
 Todos for this section:
 
- * Allow users to put an end time on polls they create 
+ * Allow users to put an end time on polls they create +
  * After the end time is past show the polls in the list for one more day (so users can see results) but don't allow any
-   more votes.
+   more votes. +
  * One day after the poll ends hide the polls from the users +
 
 ##A more interesting home page
@@ -98,8 +98,8 @@ through a large number of polls.
 
 Todos for this section:
 
- * Update the poll cards on the home page to show the days left until the poll ends.
- * Update the poll cards on the home page to show the number of votes added so far.
+ * Update the poll cards on the home page to show the days left until the poll ends. +
+ * Update the poll cards on the home page to show the number of votes added so far. +
  * If we imagine there are 100,000 polls in our database, update the home page so that it would still load quickly. 
    We don't necessarily need to show all the polls at the same time.
 

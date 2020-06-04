@@ -1,6 +1,20 @@
 <template name="pollListItem">
 	<div class="poll-list-item">
         <div class="row">
+            <div class="col-sm-4 text-right">
+                <div class="poll-details-creation-date">
+                    <i class="fa fa-calendar"></i> {{getTimeAgoFormat endTime}} the poll will end
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4 text-right">
+                <div class="poll-details-creation-date">
+                    {{countVotes}} votes so far
+                </div>
+            </div>
+        </div>
+        <div class="row">
             <div class="col-sm-12 text-center">
 				<div class="poll-list-item-title">
                     {{title}}
@@ -52,6 +66,7 @@
 					</div>
                 </div>
                 {{/if}}
+                {{#if disableVoting}}
                 <div class="row poll-details-ballet">
 					<div class="col-sm-12">
                         Cast Your Vote:
@@ -62,6 +77,7 @@
 						</div>
 					</div>
                 </div>
+                {{/if}}
             </div>
 		</div>
     </div>

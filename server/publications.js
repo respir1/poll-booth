@@ -4,7 +4,8 @@
 
 Meteor.publish('polls', function () {
 	check(arguments, [Match.Any]);
-	return Polls.find({}, { sort: { createdAt: -1 } });
+	var today = Date.now();
+	return Polls.find({ endTime: { $gte: today } });
 });
 
 
