@@ -35,7 +35,7 @@ Template.newPoll.events = {
 
 		if(!metOptionsCriteria) {
 			FlashMessages.sendWarning(
-				"Whoah! We have to have atleast two voting options and a minimum of 6 options for users to choose from.", 
+				"Whoah! We have to have atleast 2 voting options and a minimum of 6 options for users to choose from.", 
 				{ autoHide: true, hideDelay: 5000 });
 		}
 

@@ -8,9 +8,3 @@ Template.registerHelper("getTimeAgoFormat", function(timestamp) {
 	if(timestamp)
 		return moment(timestamp).fromNow();
 });
-
-Template.registerHelper("countVotes", function() {
-		var voteCount = Votes.find({ pollId: this.id }).count();
-		console.log(voteCount, 'voteCount')
-		return voteCount;
-});

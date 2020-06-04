@@ -53,3 +53,9 @@ Template.pollDetails.helpers({
 		return moment().valueOf() < pollInfo.endTime;
 	}
 })
+
+Template.pollListItem.helpers({
+	'countVotes': function() {
+		return 0;
+	}
+})
